@@ -1,0 +1,25 @@
+version: 1
+formatters:
+  standard:
+    format: "%(asctime)s-%(msecs)03d %(filename)s:%(lineno)d [%(levelname)s] - %(message)s"
+    datefmt: "%Y-%m-%d:%H:%M:%S"
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: standard
+    stream: ext://sys.stdout
+loggers:
+  root:
+    level: INFO
+    handlers:
+    - console
+  __main__:
+    level: INFO
+    handlers:
+    - console
+    propagate: False
+  routes.health:
+    level: INFO
+    handlers:
+    - console
+    propagate: False
